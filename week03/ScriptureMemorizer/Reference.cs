@@ -3,7 +3,7 @@ public class Reference
     private string book;
     private int chapter;
     private int verseStart;
-    private int? verseEnd; // Nullable for single verse
+    private int? verseEnd;
 
     public Reference(string book, int chapter, int verseStart, int? verseEnd = null)
     {

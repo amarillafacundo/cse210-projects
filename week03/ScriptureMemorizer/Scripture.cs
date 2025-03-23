@@ -20,7 +20,7 @@ public class Scripture
     public void HideRandomWords()
     {
         Random rand = new Random();
-        int wordsToHide = Math.Max(1, words.Count / 5); // Hide a few words at a time
+        int wordsToHide = Math.Max(1, words.Count / 5);
 
         for (int i = 0; i < wordsToHide; i++)
         {
