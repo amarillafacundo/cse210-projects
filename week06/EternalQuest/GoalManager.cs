@@ -62,17 +62,17 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-        // TODO
+        
     }
 
     public void ListGoalNames()
     {
-        // TODO
+        
     }
 
     public void ListGoalDetails()
     {
-        // TODO
+        
     }
 
     // Add CreateGoal //
@@ -144,19 +144,19 @@ public class GoalManager
         {
             Goal selectedGoal = _goals[index - 1];
 
-            // Get current level BEFORE adding points
+            
             int oldLevel = GetPlayerLevel();
 
-            // Record event and update score
+            
             int pointsEarned = selectedGoal.RecordEvent();
             _score += pointsEarned;
 
             Console.WriteLine($"Congratulations! You earned {pointsEarned} points.");
 
-            // Get new level AFTER adding points
+            
             int newLevel = GetPlayerLevel();
 
-            // Level up message
+            
             if (newLevel > oldLevel)
             {
                 Console.WriteLine($"You've leveled up to Level {newLevel}!");
@@ -172,7 +172,7 @@ public class GoalManager
     }
 
 
-    // add SaveGoals
+    // Add SaveGoals
     public void SaveGoals()
     {
         Console.Write("Enter the filename to save to: ");
@@ -180,7 +180,7 @@ public class GoalManager
 
         using (StreamWriter writer = new StreamWriter(filename))
         {
-            writer.WriteLine(_score); // Save score on first line
+            writer.WriteLine(_score); 
 
             foreach (Goal goal in _goals)
             {
@@ -191,7 +191,7 @@ public class GoalManager
         Console.WriteLine("Goals and score saved successfully!");
     }
 
-    // add LoadGoals //
+    // Add LoadGoals //
     public void LoadGoals()
     {
         Console.Write("Enter the filename to load from: ");
@@ -204,9 +204,9 @@ public class GoalManager
         }
 
         string[] lines = File.ReadAllLines(filename);
-        _goals.Clear(); // Clear current list
+        _goals.Clear(); 
 
-        _score = int.Parse(lines[0]); // First line = score
+        _score = int.Parse(lines[0]); 
 
         for (int i = 1; i < lines.Length; i++)
         {
@@ -226,9 +226,7 @@ public class GoalManager
                 goal = new SimpleGoal(name, desc, points);
                 if (isComplete)
                 {
-                    // Trick to set private _isComplete via reflection or extra logic
-                    // We’ll skip it here, or you can add a constructor to accept it
-                    // For now, the goal will load but show as incomplete
+                
                 }
             }
             else if (goalType == "EternalGoal")
@@ -250,7 +248,7 @@ public class GoalManager
 
                 ChecklistGoal checklist = new ChecklistGoal(name, desc, points, target, bonus);
 
-                // Set completed count via reflection or by adding a method (easiest):
+                
                 for (int j = 0; j < completed; j++) checklist.RecordEvent();
 
                 goal = checklist;

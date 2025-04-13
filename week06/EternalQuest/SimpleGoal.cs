@@ -15,7 +15,7 @@ public class SimpleGoal : Goal
             _isComplete = true;
             return _points;
         }
-        return 0; // No extra points if already completed
+        return 0; 
     }
 
     public override bool IsComplete()

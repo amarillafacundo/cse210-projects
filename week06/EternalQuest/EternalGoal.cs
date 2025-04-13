@@ -7,12 +7,12 @@ public class EternalGoal : Goal
 
     public override int RecordEvent()
     {
-        return _points; // Always gives points, never ends
+        return _points; 
     }
 
     public override bool IsComplete()
     {
-        return false; // Never completed
+        return false; 
     }
 
     public override string GetStringRepresentation()
